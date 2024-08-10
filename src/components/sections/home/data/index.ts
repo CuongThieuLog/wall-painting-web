@@ -1,15 +1,15 @@
 import HomeSwipper1 from "../../../../../public/img/jpg/HomeSwipper1.jpg";
 import HomeSwipper2 from "../../../../../public/img/jpg/HomeSwipper2.jpg";
 import HomeSwipper3 from "../../../../../public/img/jpg/HomeSwipper3.jpg";
-import HomeSwipper4 from "../../../../../public/img/jpg/HomeSwipper4.jpg";
-import HomeSwipper5 from "../../../../../public/img/jpg/HomeSwipper5.jpg";
-import HomeSwipper6 from "../../../../../public/img/jpg/HomeSwipper6.jpg";
-import HomeSwipper7 from "../../../../../public/img/jpg/HomeSwipper7.jpg";
-import HomeSwipper8 from "../../../../../public/img/jpg/HomeSwipper8.jpg";
-import HomeSwipper9 from "../../../../../public/img/jpg/HomeSwipper9.jpg";
-import HomeSwipper10 from "../../../../../public/img/jpg/HomeSwipper10.jpg";
-import HomeSwipper11 from "../../../../../public/img/jpg/HomeSwipper11.jpg";
-import HomeSwipper12 from "../../../../../public/img/jpg/HomeSwipper12.jpg";
+import HomeSwipper4 from "../../../../../public/img/slider-2/pt-ccobay.png";
+import HomeSwipper5 from "../../../../../public/img/slider-2/pt-truonghoc.png";
+import HomeSwipper6 from "../../../../../public/img/slider-2/pt-cafe.png";
+import HomeSwipper7 from "../../../../../public/img/slider-2/pt-bien.png";
+import HomeSwipper8 from "../../../../../public/img/catalog/pt-ratvang.png";
+import HomeSwipper9 from "../../../../../public/img/catalog/pt-dongque.png";
+import HomeSwipper10 from "../../../../../public/img/catalog/pt-mamnon.png";
+import HomeSwipper11 from "../../../../../public/img/catalog/pt-duongtau.png";
+import HomeSwipper12 from "../../../../../public/img/catalog/pt-it.png";
 import HomeNews1 from "../../../../../public/img/jpg/HomeNews1.jpg";
 import HomeNews2 from "../../../../../public/img/jpg/HomeNews2.jpg";
 import HomeNews3 from "../../../../../public/img/jpg/HomeNews3.jpg";
@@ -29,11 +29,11 @@ import HomeCustomer3 from "../../../../../public/img/jpg/HomeCustomer3.jpg";
 export const listMainProject = [
   {
     image: HomeSwipper4,
-    name: "Dự án tranh tường - Mầm non",
+    name: "Dự án tranh cò bay",
   },
   {
     image: HomeSwipper5,
-    name: "Tranh vườn sân tường - Thái Bình",
+    name: "Tranh vườn sân trường",
   },
   {
     image: HomeSwipper6,
@@ -41,7 +41,7 @@ export const listMainProject = [
   },
   {
     image: HomeSwipper7,
-    name: "Dự án tranh tường - VIN AI",
+    name: "Tranh tường - Biển cả xanh mát",
   },
 ];
 
