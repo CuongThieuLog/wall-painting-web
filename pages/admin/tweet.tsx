@@ -1,17 +1,24 @@
+import ModalCustom from "@/src/components/common/Modal";
 import AdminLayout from "@/src/components/layout/admin";
 import { aiTweet, createTweet, getListProfile } from "@/src/lib/api";
+import { generateImage } from "@/src/lib/api/generate";
 import { ArrowUpTrayIcon, TrashIcon } from "@heroicons/react/24/outline";
 import {
   Box,
   Button,
+  ButtonGroupContext,
   Grid,
+  Input,
   InputLabel,
   MenuItem,
   Select,
   Stack,
+  styled,
   TextField,
+  Typography,
 } from "@mui/material";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import Image from "next/image";
 import React, { ChangeEvent, ReactElement, useRef, useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -44,6 +51,19 @@ const Tweet = () => {
         "content",
         res?.data?.response?.candidates?.[0]?.content?.parts?.[0]?.text
       );
+    },
+    onError: (res) => {
+      toast.error("Có lỗi xảy ra");
+    },
+  });
+
+  const [imageGenerate, setImageGenerate] = useState<string | null>(null);
+
+  const { mutate: mutateGenerate, isLoading: isLoadingGenerate } = useMutation({
+    mutationFn: generateImage,
+    onSuccess: (res) => {
+      console.log(res.data.data[0].url);
+      setImageGenerate(res.data.data[0].url);
     },
     onError: (res) => {
       toast.error("Có lỗi xảy ra");
@@ -90,8 +110,50 @@ const Tweet = () => {
     setLoading(false);
   };
 
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const {
+    register: registerAI,
+    handleSubmit: handleSubmitAI,
+    setValue: setValueGenerate,
+    formState: { errors: errorsAI },
+  } = useForm();
+
+  async function downloadImage(url: string) {
+    try {
+      console.log(url);
+      const a = document.createElement("a");
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const blob = await response.blob();
+      const objectURL = URL.createObjectURL(blob);
+      a.href = objectURL;
+      a.download = "image.png";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(objectURL); // Clean up the object URL
+    } catch (error) {
+      console.error("There was a problem with the fetch operation:", error);
+    }
+  }
+
+  async function convertImageUrlToFile(url: string) {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    const file = new File([blob], "image.png", { type: "image/png" });
+    return file;
+  }
+
   return (
-    <Box p={4}>
+    <Stack p={4}>
+      <Stack alignItems="flex-end">
+        <Button variant="contained" onClick={() => setIsOpen(true)}>
+          Render ảnh AI
+        </Button>
+      </Stack>
       <Stack justifyContent={"center"} alignItems={"center"} gap={4}>
         <Stack gap={1} width={"50%"} alignItems={"flex-start"}>
           <InputLabel sx={{ fontSize: 14, fontWeight: 600 }}>
@@ -217,7 +279,95 @@ const Tweet = () => {
           </Button>
         </Stack>
       </Stack>
-    </Box>
+
+      <ModalCustom
+        open={isOpen}
+        handleClose={() => setIsOpen(false)}
+        style={{ minWidth: "50%" }}
+      >
+        <Box>
+          <Typography fontWeight={600} variant="h3">
+            Render ảnh AI
+          </Typography>
+          <Stack mt={4} direction="row" spacing={4}>
+            <Stack width="40%" spacing={4}>
+              <Stack>
+                <InputLabel sx={{ fontSize: 14, fontWeight: 600 }}>
+                  Nhập nội dung cần render ảnh
+                </InputLabel>
+                <TextField
+                  multiline
+                  rows={8}
+                  fullWidth
+                  error={errors?.content ? true : false}
+                  {...registerAI("content", {
+                    required: "Trường này không được để trống",
+                  })}
+                  helperText={errors?.content?.message?.toString()}
+                />
+              </Stack>
+              <Button
+                variant="contained"
+                onClick={handleSubmitAI((data) => {
+                  mutateGenerate({ prompt: data.content });
+                })}
+              >
+                Xuất ảnh
+              </Button>
+            </Stack>
+            <Stack
+              border={"1px dashed #949494"}
+              sx={{
+                width: "60%",
+                height: 400,
+                borderRadius: 2,
+              }}
+              justifyContent={"center"}
+              alignItems={"center"}
+            >
+              {imageGenerate ? (
+                <Image
+                  src={imageGenerate}
+                  alt="avatar"
+                  width={400}
+                  height={400}
+                />
+              ) : isLoadingGenerate ? (
+                <Typography>Đang tải ảnh...</Typography>
+              ) : (
+                <Typography>Chưa có ảnh</Typography>
+              )}
+            </Stack>
+          </Stack>
+
+          <Stack direction="row" spacing={2} justifyContent="flex-end" mt={8}>
+            <Button
+              variant="contained"
+              onClick={() => {
+                setIsOpen(false);
+                setImageGenerate(null);
+                setValueGenerate("content", "");
+              }}
+            >
+              Thoát
+            </Button>
+            <Button
+              variant="contained"
+              onClick={async () => {
+                console.log(imageGenerate);
+                if (imageGenerate) {
+                  console.log("download");
+
+                  await downloadImage(imageGenerate);
+                }
+              }}
+            >
+              Dowload ảnh
+            </Button>
+          </Stack>
+        </Box>
+      </ModalCustom>
+    </Stack>
   );
 };
 
@@ -230,3 +380,21 @@ Tweet.getLayout = function getLayout(page: ReactElement) {
     </AdminLayout>
   );
 };
+
+const TextFieldCustom = styled(TextField)(({ theme }) => ({
+  "& .MuiInputBase-root": {
+    height: 45,
+    border: "1px solid #00000020",
+  },
+  "& input": {
+    padding: theme.spacing(0, 2),
+    height: "100%",
+    color: theme.palette.primary.main,
+    "&::placeholder": {
+      color: theme.palette.primary.main,
+    },
+  },
+  "& .MuiInputAdornment-root": {
+    cursor: "pointer",
+  },
+}));
