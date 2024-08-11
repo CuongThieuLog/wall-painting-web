@@ -1,11 +1,30 @@
 export const listSideBar = [
-  { title: "Tranh tường đồng quê", id: "648f198314ae71c132a942c0" },
-  { title: "Tranh tường sơn thủy", id: "648f189c14ae71c132a942b4" },
-  { title: "Tranh tường nhà hàng", id: "648f1a0514ae71c132a942c5" },
-  { title: "Tranh tường gỗ đá", id: "648f1a9214ae71c132a942ca" },
-  { title: "Tranh tường chân dung", id: "648f1b7b14ae71c132a942d4" },
-  { title: "Tranh tường trần mây", id: "648f14fc14ae71c132a94291" },
-  { title: "Tranh dát vàng", id: "648f1b0814ae71c132a942cf" },
-  { title: "Tranh phòng ăn", id: "648f191014ae71c132a942ba" },
-  { title: "Tranh thi công thực tế", id: "648f181a14ae71c132a942ae" },
+  {
+    title: "Tranh chân dung",
+    id: "66b6467d343dba2df7209874",
+  },
+  {
+    title: "Tranh tĩnh vật",
+    id: "66b6487c343dba2df7209876",
+  },
+  {
+    title: "Tranh lịch sử",
+    id: "66b64985343dba2df7209877",
+  },
+  {
+    title: "Tranh siêu thực",
+    id: "66b64a54343dba2df7209878",
+  },
+  {
+    title: "Tranh động vật",
+    id: "66b64b39343dba2df7209879",
+  },
+  {
+    title: "Tranh dân gian",
+    id: "66b64ca2343dba2df720987a",
+  },
+  {
+    title: "Tranh nghệ thuật số",
+    id: "66b64d9a343dba2df720987b",
+  },
 ];

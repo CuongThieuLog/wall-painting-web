@@ -8,44 +8,40 @@ export const listMenu = [
     href: "/wall-painting",
   },
   {
-    title: "Tranh tường đồng quê",
-    href: "/wall-painting/648f198314ae71c132a942c0",
+    title: "Tranh chân dung",
+    href: "/wall-painting/66b6467d343dba2df7209874",
   },
   {
-    title: "Tranh tường sơn thủy",
-    href: "/wall-painting/648f189c14ae71c132a942b4",
+    title: "Tranh tĩnh vật",
+    href: "/wall-painting/66b6487c343dba2df7209876",
   },
 
   {
-    title: "Tranh tường nhà hàng",
-    href: "/wall-painting/648f1a0514ae71c132a942c5",
+    title: "Tranh phong cảnh",
+    href: "/wall-painting/66b64778343dba2df7209875",
   },
   {
     title: "Khác",
     sub: [
       {
-        title: "Tranh tường gỗ đá",
-        href: "/wall-painting/648f1a9214ae71c132a942ca",
+        title: "Tranh lịch sử",
+        href: "/wall-painting/66b64985343dba2df7209877",
       },
       {
-        title: "Tranh tường dát vàng",
-        href: "/wall-painting/648f1b0814ae71c132a942cf",
+        title: "Tranh siêu thực",
+        href: "/wall-painting/66b64a54343dba2df7209878",
       },
       {
-        title: "Tranh tường chân dung",
-        href: "/wall-painting/648f1b7b14ae71c132a942d4",
+        title: "Tranh động vật",
+        href: "/wall-painting/66b64b39343dba2df7209879",
       },
       {
-        title: "Tranh tường trần mây",
-        href: "/wall-painting/648f14fc14ae71c132a94291",
+        title: "Tranh dân gian",
+        href: "/wall-painting/66b64ca2343dba2df720987a",
       },
       {
-        title: "Tranh phòng ăn",
-        href: "/wall-painting/648f191014ae71c132a942ba",
-      },
-      {
-        title: "Tranh thi công thực tế",
-        href: "/wall-painting/648f181a14ae71c132a942ae",
+        title: "Tranh nghệ thuật số",
+        href: "/wall-painting/66b64d9a343dba2df720987b",
       },
     ],
   },

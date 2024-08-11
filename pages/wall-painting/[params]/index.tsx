@@ -24,6 +24,7 @@ const WallPaintingCategory = () => {
     async () => {
       try {
         const res = await getDetailCategory(router.query.params as string);
+        console.log(res);
         return res.data.data.title;
       } catch (err: any) {
         toast.error(err?.message || "Có lỗi xảy ra");
