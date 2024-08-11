@@ -21,7 +21,7 @@ const ContactOrder = () => {
         <Box display={"flex"} alignItems={"center"} gap={2}>
           <PhoneIcon width={18} color="#446084" />
           <Typography variant="h5">
-            Đặt hàng qua điện thoại (zalo): 0975.146.588
+            Đặt hàng qua điện thoại (zalo): 0329.834.563
           </Typography>
         </Box>
         <Box display={"flex"} alignItems={"center"} gap={2}>

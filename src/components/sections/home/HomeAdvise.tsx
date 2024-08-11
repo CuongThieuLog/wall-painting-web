@@ -53,7 +53,7 @@ const HomeAdvise = () => {
             bức tường của{" "}
             <span>phòng khách, phòng ngủ, quán cafe hay văn phòng…</span> Hãy
             đến với <span>Mỹ thuật Đông Anh</span> để cảm nhận sự khác biệt. Hãy
-            gọi chúng tôi theo số: <span>0975.146.588</span> hoặc yêu cầu{" "}
+            gọi chúng tôi theo số: <span>0329.834.563</span> hoặc yêu cầu{" "}
             <span>Mỹ thuật Đông Anh</span> gọi lại cho bạn tại đây.
           </Text>
         </Stack>

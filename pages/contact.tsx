@@ -44,9 +44,11 @@ const Introduce = () => {
             trang trí cho hơn 350000 căn hộ cao cấp trên toàn quốc.
           </Typography>
           <ListCustom>
-            <ItemCustom>Hotline: 0975.146.588</ItemCustom>
-            <ItemCustom>Email: tranhtuongmienbac@gmail.com</ItemCustom>
-            <ItemCustom>Địa chỉ: Đại Mạch, Đông Anh, Hà Nội</ItemCustom>
+            <ItemCustom>Liên hệ: 0329.834.563</ItemCustom>
+            <ItemCustom>Email: tranhai@gmail.com</ItemCustom>
+            <ItemCustom>
+              Địa chỉ: 90 P.Khương Hạ, Khương Đình, Thanh Xuân, Hà Nội
+            </ItemCustom>
           </ListCustom>
         </Box>
       </Container>
