@@ -15,6 +15,8 @@ import { SessionProvider } from "next-auth/react";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "@/src/lib/redux/store";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -29,14 +31,13 @@ export interface MyAppProps extends AppProps {
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-
-  const getLayout = Component.getLayout ?? (page => page);
-
+  const getLayout = Component.getLayout ?? ((page) => page);
   return (
     <CacheProvider value={emotionCache}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
+
       <SessionProvider session={pageProps.session}>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
