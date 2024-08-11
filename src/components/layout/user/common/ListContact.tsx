@@ -7,7 +7,7 @@ import PhoneContact from "../../../../../public/img/png/phoneContact.png";
 const ListContact = () => {
   return (
     <Box position={"fixed"} bottom={40} left={20} zIndex={1}>
-      <Link href="https://zalo.me/0975146588" target="_blank">
+      <Link href="https://zalo.me/0329834563" target="_blank">
         <Contact
           image={ZaloContact}
           bgFill={"rgba(33,150,243,.7)"}
@@ -16,7 +16,7 @@ const ListContact = () => {
         />
       </Link>
 
-      <Link href="tel:0975146588">
+      <Link href="tel:0329834563">
         <Contact
           image={PhoneContact}
           bgFill={"rgb(32, 169, 204,0.7)"}

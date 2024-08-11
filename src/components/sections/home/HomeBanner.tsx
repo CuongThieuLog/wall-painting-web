@@ -57,7 +57,7 @@ const HomeBanner = () => {
             <Typography variant="h5">
               Tranh tường Hà Nội – Họa sỹ chuyên vẽ tranh tường 3D, tranh sơn
               thủy, phong cảnh, trang trí quá cafe, nhà hàng, tranh mầm non … rẻ
-              đẹp nhất miền Bắc
+              đẹp nhất
             </Typography>
             <Box></Box>
           </Box>

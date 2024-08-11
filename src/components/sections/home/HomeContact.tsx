@@ -75,7 +75,7 @@ const HomeContact = () => {
           Vào cửa miễn phí
         </Typography>
         <Typography color="white" mt={4}>
-          Địa chỉ: Đại Mạch, Đông Anh, Hà Nội.
+          Địa chỉ: 90 P.Khương Hạ, Khương Đình, Thanh Xuân, Hà Nội.
         </Typography>
         <Stack mt={4} alignItems={"center"}>
           <Button variant="contained" href="/contact">

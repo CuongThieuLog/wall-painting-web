@@ -50,13 +50,13 @@ const Footer = () => {
                   <Box display={"flex"} alignItems={"center"} gap={1.5}>
                     <MapPinIcon width={18} />
                     <Typography fontWeight={500} variant="h5">
-                      Địa chỉ: Đại Mạch, Đông Anh, Hà Nội.
+                      Địa chỉ: 90 P.Khương Hạ, Khương Đình, Thanh Xuân, Hà Nội.
                     </Typography>
                   </Box>
                   <Box display={"flex"} alignItems={"center"} gap={1.5}>
                     <PhoneIcon width={18} />
                     <Typography fontWeight={500} variant="h5">
-                      Chăm sóc khách hàng: 0975.146.588
+                      Chăm sóc khách hàng: 0329.834.563
                     </Typography>
                   </Box>
                   <Box display={"flex"} alignItems={"center"} gap={1.5}>
@@ -106,7 +106,7 @@ const Footer = () => {
         py={1}
       >
         <Typography color="white">
-          Copyright 2023 © Bản quyền thuộc Mỹ thuật Đông Anh
+          Copyright 2024 © Bản quyền thuộc Mỹ thuật Đông Anh
         </Typography>
       </Box>
     </Box>

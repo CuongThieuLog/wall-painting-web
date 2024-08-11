@@ -45,7 +45,7 @@ const TopHeader = () => {
             <Link href={"mailto:mythuatdonganh@gmail.com"}>
               <HeaderItem>
                 <EnvelopeIcon />
-                <Typography>Contacts</Typography>
+                <Typography>Liên hệ</Typography>
               </HeaderItem>
             </Link>
             <HeaderItem>
@@ -55,7 +55,7 @@ const TopHeader = () => {
             <Link href={"tel:0975146588"}>
               <HeaderItem>
                 <PhoneIcon />
-                <Typography>0975.146.588</Typography>
+                <Typography>0329.834.563</Typography>
               </HeaderItem>
             </Link>
           </Box>
