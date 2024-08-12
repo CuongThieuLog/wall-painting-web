@@ -2,7 +2,7 @@ import { createOrder } from "@/src/lib/api";
 import { createIntent } from "@/src/lib/api/payment";
 import { updateUserCart } from "@/src/lib/api/user";
 import { updateCart } from "@/src/lib/redux/userSlice";
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import {
   PaymentElement,
   useElements,
@@ -120,14 +120,16 @@ const CheckoutForm = ({
   return (
     <form onSubmit={handleSubmit}>
       <PaymentElement />
-      <Button
-        variant="contained"
-        type="submit"
-        disabled={!stripe || !elements}
-        mt={2}
-      >
-        Thanh toán
-      </Button>
+      <Box sx={{ marginTop: "20px" }}>
+        <Button
+          variant="contained"
+          type="submit"
+          disabled={!stripe || !elements}
+          mt={2}
+        >
+          Thanh toán
+        </Button>
+      </Box>
       {/* Show error message to your customers */}
       {errorMessage && <div>{errorMessage}</div>}
     </form>
