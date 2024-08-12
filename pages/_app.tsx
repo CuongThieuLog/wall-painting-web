@@ -32,25 +32,41 @@ export interface MyAppProps extends AppProps {
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const getLayout = Component.getLayout ?? ((page) => page);
+
+  const stripePromise = loadStripe(
+    process.env.NEXT_PUBLIC_STRIPE_KEY as string
+  );
+
+  const options = {
+    mode: "payment",
+    amount: 1099,
+    currency: "usd",
+    // Fully customizable with appearance API.
+    appearance: {
+      /*...*/
+    },
+  };
   return (
     <CacheProvider value={emotionCache}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
 
-      <SessionProvider session={pageProps.session}>
-        <Provider store={store}>
-          <PersistGate loading={null} persistor={persistor}>
-            <ThemeProvider theme={theme}>
-              <CssBaseline />
-              <QueryClientProvider client={queryClient}>
-                {getLayout(<Component {...pageProps} />)}
-                <ToastContainer />
-              </QueryClientProvider>
-            </ThemeProvider>
-          </PersistGate>
-        </Provider>
-      </SessionProvider>
+      <QueryClientProvider client={queryClient} contextSharing={true}>
+        <SessionProvider session={pageProps.session}>
+          <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+              <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <Elements stripe={stripePromise} options={options}>
+                  {getLayout(<Component {...pageProps} />)}
+                  <ToastContainer />
+                </Elements>
+              </ThemeProvider>
+            </PersistGate>
+          </Provider>
+        </SessionProvider>
+      </QueryClientProvider>
     </CacheProvider>
   );
 }

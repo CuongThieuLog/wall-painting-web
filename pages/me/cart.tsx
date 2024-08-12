@@ -29,6 +29,12 @@ import { updateCart } from "@/src/lib/redux/userSlice";
 import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { createOrder } from "@/src/lib/api";
+import { PaymentElement } from "@stripe/react-stripe-js";
+import StripeIcon from "../../public/img/stripe.png";
+import Image from "next/image";
+import ModalCustom from "@/src/components/common/Modal";
+import { CheckoutForm } from "@/src/components/layout/user/CheckOutForm";
+import { createIntent } from "@/src/lib/api/payment";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -39,7 +45,8 @@ const Cart = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    getValues,
+    formState: { errors, isValid },
   } = useForm({ mode: "onSubmit" });
 
   const columns: GridColDef[] = [
@@ -196,32 +203,36 @@ const Cart = () => {
 
   const { mutate, isLoading } = useMutation({
     mutationFn: createOrder,
-    onSuccess: async (res) => {
-      dispatch(updateCart([]));
-      await updateUserCart({
-        listCart: [],
-      });
-      refetch();
-      toast.success("Đặt hàng thành công");
-    },
     onError: (error) => {
       toast.error("Đặt hàng thất bại");
     },
   });
 
   const handleCreateOrder = async (fv: FieldValues) => {
-    mutate({
-      visit: localStorage?.getItem("visit") as string,
-      name: fv?.name,
-      phone: fv?.phone,
-      address: fv?.address,
-      note: fv?.note,
-      user: user._id,
-      cart: data?.map((e: any) => ({
-        paint: e?.paint?._id,
-        amount: e?.amount,
-      })),
-    });
+    mutate(
+      {
+        visit: localStorage?.getItem("visit") as string,
+        name: fv?.name,
+        phone: fv?.phone,
+        address: fv?.address,
+        note: fv?.note,
+        user: user._id,
+        cart: data?.map((e: any) => ({
+          paint: e?.paint?._id,
+          amount: e?.amount,
+        })),
+      },
+      {
+        onSuccess: async (res) => {
+          dispatch(updateCart([]));
+          await updateUserCart({
+            listCart: [],
+          });
+          refetch();
+          toast.success("Đặt hàng thành công");
+        },
+      }
+    );
   };
 
   const totalPrice = () => {
@@ -234,6 +245,16 @@ const Cart = () => {
   useEffect(() => {
     if (!user) router.push("/");
   }, [user]);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const handleOpenModal = () => setIsOpen(true);
+
+  const mutateCreateIntent = useMutation({
+    mutationFn: createIntent,
+    onError: () => {
+      toast.error("Khởi tạo thanh toán thất bại");
+    },
+  });
 
   return (
     <Box py={4} minHeight={"60vh"}>
@@ -352,7 +373,27 @@ const Cart = () => {
                         type="submit"
                         disabled={isLoading}
                       >
-                        ĐẶT HÀNG
+                        THANH TOÁN KHI NHẬN HÀNG
+                      </Button>
+                    </Box>
+
+                    <Box mt={4}>
+                      <Button
+                        variant="contained"
+                        fullWidth
+                        onClick={handleOpenModal}
+                        startIcon={
+                          <Image
+                            src={StripeIcon}
+                            alt="stripe icon"
+                            width={40}
+                            height={40}
+                          />
+                        }
+                        size="medium"
+                        disabled={!isValid}
+                      >
+                        THANH TOÁN ONLINE
                       </Button>
                     </Box>
                   </Box>
@@ -371,6 +412,28 @@ const Cart = () => {
           )}
         </Box>
       </Container>
+
+      <ModalCustom
+        open={isOpen}
+        handleClose={() => setIsOpen(false)}
+        style={{ minWidth: "50%" }}
+      >
+        <Box>
+          <Typography fontWeight={600} variant="h3">
+            Thông tin chi tiết
+          </Typography>
+          <CheckoutForm
+            address={getValues("address") as string}
+            name={getValues("name") as string}
+            phone={getValues("phone") as string}
+            note={getValues("note") as string}
+            amount={Number(totalPrice())}
+            data={data}
+            mutate={mutate}
+            mutateCreateIntent={mutateCreateIntent}
+          />
+        </Box>
+      </ModalCustom>
     </Box>
   );
 };
