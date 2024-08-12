@@ -35,18 +35,18 @@ export const options = {
 };
 
 const labels = [
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
+  "Tháng Sáu",
+  "Tháng Bảy",
+  "Tháng Tám",
+  "Tháng Chín",
+  "Tháng Mười",
+  "Tháng Mười Một",
+  "Tháng Mười Hai",
+  "Tháng Một",
+  "Tháng Hai",
+  "Tháng Ba",
+  "Tháng Tư",
+  "Tháng Năm",
 ];
 
 const data = {
