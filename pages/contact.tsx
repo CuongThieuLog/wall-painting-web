@@ -26,12 +26,12 @@ const Introduce = () => {
             fontWeight={"bold"}
             mt={8}
           >
-            Viết về tranh tường miền Bắc
+            Viết về tranh tường
           </Typography>
           <Typography variant="h4" mt={2}>
-            <strong>Tranh tường miền Bắc</strong> là một trong những cơ sở đầu
-            tiên ở Việt Nam cung cấp dịch vẽ tranh tường với chất lượng hàng đầu
-            và hỗ trợ dịch vụ trọn gói:
+            <strong>Tranh tường </strong> là một trong những cơ sở đầu tiên ở
+            Việt Nam cung cấp dịch vẽ tranh tường với chất lượng hàng đầu và hỗ
+            trợ dịch vụ trọn gói:
           </Typography>
           <ListCustom>
             <ItemCustom>Tư vấn trang trí nhà miễn phí</ItemCustom>
@@ -40,12 +40,12 @@ const Introduce = () => {
             <ItemCustom>Giám sát và chỉnh sửa sản phẩm</ItemCustom>
           </ListCustom>
           <Typography variant="h4" mt={2}>
-            Tranh tường miền Bắc tự hào là thương hiệu uy tín đã được sử dụng
-            trang trí cho hơn 350000 căn hộ cao cấp trên toàn quốc.
+            Tranh tường tự hào là thương hiệu uy tín đã được sử dụng trang trí
+            cho hơn 350000 căn hộ cao cấp trên toàn quốc.
           </Typography>
           <ListCustom>
-            <ItemCustom>Liên hệ: 0329.834.563</ItemCustom>
-            <ItemCustom>Email: tranhai@gmail.com</ItemCustom>
+            <ItemCustom>Hotline: 0329.834.563</ItemCustom>
+            <ItemCustom>Email: tranhtuong@gmail.com</ItemCustom>
             <ItemCustom>
               Địa chỉ: 90 P.Khương Hạ, Khương Đình, Thanh Xuân, Hà Nội
             </ItemCustom>

@@ -12,10 +12,10 @@ const HeaderAdmin = () => {
       >
         <Box textAlign={"center"}>
           <Typography variant="h2" fontWeight={600}>
-            Dashboard
+            Admin
           </Typography>
           <Typography variant="body1">
-            Welcome to management software
+            Chào mừng đến với phần mềm quản lý
           </Typography>
         </Box>
       </Box>

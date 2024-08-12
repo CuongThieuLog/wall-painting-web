@@ -151,7 +151,7 @@ const Tweet = () => {
     <Stack p={4}>
       <Stack alignItems="flex-end">
         <Button variant="contained" onClick={() => setIsOpen(true)}>
-          Render ảnh AI
+          Tạo ảnh AI
         </Button>
       </Stack>
       <Stack justifyContent={"center"} alignItems={"center"} gap={4}>
@@ -287,13 +287,13 @@ const Tweet = () => {
       >
         <Box>
           <Typography fontWeight={600} variant="h3">
-            Render ảnh AI
+            Tạo ảnh AI
           </Typography>
           <Stack mt={4} direction="row" spacing={4}>
             <Stack width="40%" spacing={4}>
               <Stack>
                 <InputLabel sx={{ fontSize: 14, fontWeight: 600 }}>
-                  Nhập nội dung cần render ảnh
+                  Nhập nội dung cần tạo ảnh
                 </InputLabel>
                 <TextField
                   multiline

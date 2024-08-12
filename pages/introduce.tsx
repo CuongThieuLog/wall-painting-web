@@ -7,7 +7,7 @@ const Introduce = () => {
     <Box py={8}>
       <Container>
         <Typography variant="h1" fontWeight={600}>
-          Về Tranh Tường Miền Bắc – Tranh Phong Cảnh & Tranh Nghệ Thuật
+          Về Tranh Tường – Tranh Phong Cảnh & Tranh Nghệ Thuật
         </Typography>
         <Typography mt={8}>
           Kính chào quý khách, lời đầu tiên chúng tôi xin chân thành cảm ơn quý
@@ -23,14 +23,14 @@ const Introduce = () => {
         </Typography>
         <Typography mt={4}>
           Cùng với sự làm việc không biết mệt mỏi của đội ngũ nhân viên Tranh
-          tường miền Bắc, những họa sĩ tài hoa, đầy sáng tạo, cùng các chuyên
-          gia hội họa dày dạn kinh nghiệm đã cho ra đời nhiều tác phẩm tranh độc
-          đáo và ấn tượng. Các bức tranh phong cảnh như một sự quảng bá những
-          hình ảnh đẹp nhất từ khắp mọi miền tổ quốc và các phong cảnh đẹp trên
-          thế giới đến mọi người và khơi dậy tình yêu cái đẹp của con người Việt
-          Nam. Cũng vậy, những tác phẩm tranh tường nghệ thuật,…như càng làm
-          tăng thêm vẻ đẹp, tô điểm thêm những sắc màu cuộc sông cho không gian
-          của bạn thêm phần lộng lẫy và sang trọng.
+          tường , những họa sĩ tài hoa, đầy sáng tạo, cùng các chuyên gia hội
+          họa dày dạn kinh nghiệm đã cho ra đời nhiều tác phẩm tranh độc đáo và
+          ấn tượng. Các bức tranh phong cảnh như một sự quảng bá những hình ảnh
+          đẹp nhất từ khắp mọi miền tổ quốc và các phong cảnh đẹp trên thế giới
+          đến mọi người và khơi dậy tình yêu cái đẹp của con người Việt Nam.
+          Cũng vậy, những tác phẩm tranh tường nghệ thuật,…như càng làm tăng
+          thêm vẻ đẹp, tô điểm thêm những sắc màu cuộc sông cho không gian của
+          bạn thêm phần lộng lẫy và sang trọng.
         </Typography>
         <Typography mt={8} variant="h3" fontWeight={600}>
           Nhiệm vụ của chúng tôi

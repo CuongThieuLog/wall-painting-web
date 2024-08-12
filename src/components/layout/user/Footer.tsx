@@ -106,7 +106,7 @@ const Footer = () => {
         py={1}
       >
         <Typography color="white">
-          Copyright 2023 © Bản quyền thuộc Mỹ thuật Đông Anh
+          Copyright 2024 © Bản quyền thuộc Mỹ thuật Đông Anh
         </Typography>
       </Box>
     </Box>

@@ -36,12 +36,12 @@ const Profiles = () => {
         );
       },
     },
-    { field: "name", headerName: "Name", width: 150 },
-    { field: "username", headerName: "Username", width: 150 },
-    { field: "follower", headerName: "Follower", width: 150 },
-    { field: "following", headerName: "Following", width: 150 },
-    { field: "location", headerName: "Location", width: 120 },
-    { field: "joinDate", headerName: "Join date", width: 200 },
+    { field: "name", headerName: "Tên", width: 150 },
+    { field: "username", headerName: "Tên tài khoản", width: 150 },
+    { field: "follower", headerName: "Người theo dõi", width: 150 },
+    { field: "following", headerName: "Người đang theo dõi", width: 150 },
+    { field: "location", headerName: "Vị trí", width: 120 },
+    { field: "joinDate", headerName: "Ngày tham gia", width: 200 },
     {
       field: "action",
       headerName: "Hành động",

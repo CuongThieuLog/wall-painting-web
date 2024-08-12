@@ -63,7 +63,7 @@ const SideBar = () => {
           <Box px={4}>
             <BackButton onClick={() => push("/")}>
               <ChevronLeftIcon />
-              <Typography>Back to Website</Typography>
+              <Typography>Trở về trang chủ</Typography>
             </BackButton>
 
             <Box display={"flex"} mt={8} alignItems={"center"} gap={2}>
