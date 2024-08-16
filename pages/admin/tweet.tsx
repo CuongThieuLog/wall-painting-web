@@ -151,7 +151,7 @@ const Tweet = () => {
     <Stack p={4}>
       <Stack alignItems="flex-end">
         <Button variant="contained" onClick={() => setIsOpen(true)}>
-          Tạo ảnh AI
+          Tạo tranh AI
         </Button>
       </Stack>
       <Stack justifyContent={"center"} alignItems={"center"} gap={4}>
@@ -166,7 +166,7 @@ const Tweet = () => {
             size="small"
           >
             {data?.map((e: any) => (
-              <MenuItem value={e._id}>
+              <MenuItem value={e.id}>
                 {e.username} ({e.name})
               </MenuItem>
             ))}
@@ -287,14 +287,18 @@ const Tweet = () => {
       >
         <Box>
           <Typography fontWeight={600} variant="h3">
-            Tạo ảnh AI
+            Tạo tranh AI
           </Typography>
           <Stack mt={4} direction="row" spacing={4}>
             <Stack width="40%" spacing={4}>
               <Stack>
-                <InputLabel sx={{ fontSize: 14, fontWeight: 600 }}>
-                  Nhập nội dung cần tạo ảnh
+                <InputLabel sx={{ fontSize: 14, fontWeight: 600, mb: 2 }}>
+                  Nhập mô tả bức tranh
                 </InputLabel>
+                <Typography sx={{ fontSize: "12px", mb: 2 }}>
+                  Chú ý: "Càng mô tả chi tiết tranh rõ ràng thì AI sẽ đưa ra bức
+                  tranh càng chân thật hơn"
+                </Typography>
                 <TextField
                   multiline
                   rows={8}
@@ -326,11 +330,16 @@ const Tweet = () => {
               alignItems={"center"}
             >
               {imageGenerate ? (
-                <Image
+                // <Image
+                //   src={imageGenerate}
+                //   alt="avatar"
+                //   width={400}
+                //   height={400}
+                // />
+                <img
+                  style={{ width: "100%", height: "100%" }}
                   src={imageGenerate}
                   alt="avatar"
-                  width={400}
-                  height={400}
                 />
               ) : isLoadingGenerate ? (
                 <Typography>Đang tải ảnh...</Typography>
@@ -362,7 +371,7 @@ const Tweet = () => {
                 }
               }}
             >
-              Dowload ảnh
+              Download tranh
             </Button>
           </Stack>
         </Box>
