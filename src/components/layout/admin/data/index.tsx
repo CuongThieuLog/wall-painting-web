@@ -42,9 +42,9 @@ export const listMenuSidebarV2 = [
     name: "Tweet AI",
     path: "/admin/tweet",
   },
-  {
-    icon: <ChatBubbleBottomCenterIcon />,
-    name: "Quản lý comment",
-    path: "/admin/comments",
-  },
+  // {
+  //   icon: <ChatBubbleBottomCenterIcon />,
+  //   name: "Quản lý comment",
+  //   path: "/admin/comments",
+  // },
 ];
