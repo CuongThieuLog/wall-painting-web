@@ -10,6 +10,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { useQuery } from "@tanstack/react-query";
+import { getOrderStatisticsByMonth } from "@/src/lib/api";
 
 ChartJS.register(
   CategoryScale,
@@ -35,6 +37,11 @@ export const options = {
 };
 
 const labels = [
+  "Tháng Một",
+  "Tháng Hai",
+  "Tháng Ba",
+  "Tháng Tư",
+  "Tháng Năm",
   "Tháng Sáu",
   "Tháng Bảy",
   "Tháng Tám",
@@ -42,26 +49,34 @@ const labels = [
   "Tháng Mười",
   "Tháng Mười Một",
   "Tháng Mười Hai",
-  "Tháng Một",
-  "Tháng Hai",
-  "Tháng Ba",
-  "Tháng Tư",
-  "Tháng Năm",
 ];
 
-const data = {
-  labels,
-  datasets: [
-    {
-      label: "Đơn hàng",
-      data: [0, 0, 0, 1, 0, 0, 2, 3, 1, 0, 2, 5],
-      borderColor: "rgb(255, 99, 132)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
-    },
-  ],
-};
-
 const OrderParameter = () => {
+  const { data: dataStOrder } = useQuery(
+    ["listOrders"],
+    async () => {
+      try {
+        const res = await getOrderStatisticsByMonth();
+        return res?.data;
+      } catch (err: any) {
+        throw err;
+      }
+    },
+    { keepPreviousData: true }
+  );
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "Đơn hàng",
+        data: dataStOrder,
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+    ],
+  };
+
   return <Line options={options} data={data} />;
 };
 

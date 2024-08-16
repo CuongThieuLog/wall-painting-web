@@ -8,4 +8,7 @@ const createAccess = async (payload: CreateAccessType) => {
   return await request.post("/api/access", payload);
 };
 
-export { createAccess };
+const getAccessStatisticsByMonth = () =>
+  request.get("/api/access/statistics/by-month");
+
+export { createAccess, getAccessStatisticsByMonth };

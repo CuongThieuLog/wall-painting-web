@@ -30,4 +30,7 @@ const createOrder = async (payload: CreateOrderType) => {
 const getListOrders = (query?: typeQueryOrder) =>
   request.get("/api/orders?" + new URLSearchParams(query).toString());
 
-export { createOrder, getListOrders };
+const getOrderStatisticsByMonth = () =>
+  request.get("/api/orders/statistics/by-month");
+
+export { createOrder, getListOrders, getOrderStatisticsByMonth };
