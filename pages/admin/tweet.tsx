@@ -166,7 +166,7 @@ const Tweet = () => {
             size="small"
           >
             {data?.map((e: any) => (
-              <MenuItem value={e.id}>
+              <MenuItem value={e._id}>
                 {e.username} ({e.name})
               </MenuItem>
             ))}
